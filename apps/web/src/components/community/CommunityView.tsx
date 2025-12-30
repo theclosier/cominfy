@@ -119,35 +119,21 @@ export default function CommunityView({ community, events }: CommunityViewProps)
                 {/* LEFT COL: CARDS (About, Gallery, Rules) - 4 cols */}
                 <div className="lg:col-span-4 space-y-6 animate-in slide-up duration-700 delay-100">
 
-                    {/* Stats Card (New) */}
-                    <div className="bg-white rounded-2xl p-6 border border-stone-200 shadow-sm flex flex-col gap-6">
-                        <div className="flex items-center justify-between">
-                            <div>
-                                <div className="font-bold text-text-main text-2xl tracking-tight">{community.stats?.members || '1.2k'}</div>
-                                <div className="text-text-muted text-xs font-bold uppercase tracking-wide">Üye</div>
-                            </div>
-                            <div className="w-10 h-10 rounded-full bg-stone-50 flex items-center justify-center text-stone-400">
-                                <Users className="w-5 h-5" />
-                            </div>
+                    {/* Stats Card (New Compact) */}
+                    <div className="bg-white rounded-2xl p-4 border border-stone-200 shadow-sm grid grid-cols-3 divide-x divide-stone-100">
+                        <div className="text-center px-2">
+                            <div className="font-bold text-text-main text-lg md:text-xl tracking-tight">{community.stats?.members || '1.2k'}</div>
+                            <div className="text-stone-400 text-[10px] font-bold uppercase tracking-wide mt-1">Üye</div>
                         </div>
-                        <div className="w-full h-px bg-stone-100" />
-                        <div className="flex items-center justify-between">
-                            <div>
-                                <div className="font-bold text-text-main text-2xl tracking-tight">{community.stats?.city || 'İstanbul'}</div>
-                                <div className="text-text-muted text-xs font-bold uppercase tracking-wide">Konum</div>
-                            </div>
-                            <div className="w-10 h-10 rounded-full bg-stone-50 flex items-center justify-center text-stone-400">
-                                <MapPin className="w-5 h-5" />
-                            </div>
+                        <div className="text-center px-2">
+                            <div className="font-bold text-text-main text-lg md:text-xl tracking-tight line-clamp-1">{community.stats?.city || 'İstanbul'}</div>
+                            <div className="text-stone-400 text-[10px] font-bold uppercase tracking-wide mt-1">Konum</div>
                         </div>
-                        <div className="w-full h-px bg-stone-100" />
-                        <div className="flex items-center justify-between">
-                            <div>
-                                <div className="font-bold text-text-main text-2xl tracking-tight flex items-center gap-2">
-                                    {community.stats?.score || '4.9'} <Star className="w-4 h-4 text-amber-400 fill-amber-400" />
-                                </div>
-                                <div className="text-text-muted text-xs font-bold uppercase tracking-wide">Puan</div>
+                        <div className="text-center px-2">
+                            <div className="font-bold text-text-main text-lg md:text-xl tracking-tight flex items-center justify-center gap-1">
+                                {community.stats?.score || '4.9'} <Star className="w-3 h-3 text-amber-400 fill-amber-400" />
                             </div>
+                            <div className="text-stone-400 text-[10px] font-bold uppercase tracking-wide mt-1">Puan</div>
                         </div>
                     </div>
 
