@@ -1,9 +1,19 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { createClient } from "@/utils/supabase/client";
+
+useEffect(() => {
+    const checkAuth = async () => {
+        const supabase = createClient();
+        const { data: { user } } = await supabase.auth.getUser();
+        setIsLoggedIn(!!user);
+    };
+    checkAuth();
+}, []);
 import { Calendar, MapPin, Ticket, ChevronLeft, Heart, Share2, Globe, Twitter, Instagram, Linkedin, Star, LogIn } from "lucide-react";
 import Link from "next/link";
 import clsx from "clsx";
+import { createClient } from "@/utils/supabase/client";
 
 interface EventDetailViewProps {
     event: any;
@@ -18,21 +28,12 @@ export default function EventDetailView({ event, community }: EventDetailViewPro
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     useEffect(() => {
-        // Simple auth check via local storage for now (MVP) - matching previous logic
-        // Ideally this should use Supabase auth state listener, but sticking to existing pattern for now
-        if (typeof window !== 'undefined') {
-            // Check Supabase session via cookie if possible or fallback to UI state
-            // For now, let's try to grab from localStorage if it exists or check cookie presence
-            const user = localStorage.getItem('sb-dlqtdkkanrwfpdebjrwz-auth-token'); // Supabase local storage key pattern usually
-            // Or just check strictly for the mock 'currentUser' if we haven't fully migrated client side auth state logic in this specific component
-            // But we migrated login to Supabase. 
-            // Let's assume for this view, we check if we have a session.
-
-            // To be safe and simple for this refactor, we will check generic 'supabase.auth.token' or similar
-            // effectively, let's keep it simple:
-            const sbToken = localStorage.getItem('sb-dlqtdkkanrwfpdebjrwz-auth-token');
-            if (sbToken) setIsLoggedIn(true);
-        }
+        const checkAuth = async () => {
+            const supabase = createClient();
+            const { data: { user } } = await supabase.auth.getUser();
+            setIsLoggedIn(!!user);
+        };
+        checkAuth();
     }, []);
 
     const handleRegister = () => {
