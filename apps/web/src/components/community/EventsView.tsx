@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Calendar, MapPin, Search } from "lucide-react";
+import { Calendar, MapPin, Search, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import clsx from "clsx";
 
