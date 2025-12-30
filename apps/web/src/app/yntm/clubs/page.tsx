@@ -1,10 +1,15 @@
-"use client";
-
-import { MOCK_COMMUNITIES } from "@/mocks/communities";
-import { Users, MapPin, ArrowRight, Loader2, Plus } from "lucide-react";
+import { createClient } from "@/utils/supabase/server";
+import { Users, ArrowRight, Plus } from "lucide-react";
 import Link from "next/link";
 
-export default function ClubsPage() {
+export default async function ClubsPage() {
+    const supabase = await createClient();
+
+    const { data: communities } = await supabase
+        .from('communities')
+        .select('*')
+        .order('created_at', { ascending: false });
+
     return (
         <div className="p-8 md:p-12 max-w-7xl mx-auto space-y-10">
             {/* Header */}
@@ -13,7 +18,7 @@ export default function ClubsPage() {
                     <h1 className="text-3xl font-bold text-text-main mb-2">Kulüpler</h1>
                     <p className="text-text-muted text-lg">Topluluk alanlarınızı ve alt gruplarınızı yönetin.</p>
                 </div>
-                <button className="btn-primary">
+                <button className="btn-primary flex items-center gap-2">
                     <Plus className="w-5 h-5" />
                     <span>Kulüp Oluştur</span>
                 </button>
@@ -21,11 +26,12 @@ export default function ClubsPage() {
 
             {/* Clubs Grid - Magazine Style */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 animate-in slide-up duration-500 delay-100">
-                {MOCK_COMMUNITIES.map((community) => (
+                {communities && communities.map((community) => (
                     <div key={community.id} className="group cominfy-card overflow-hidden hover:shadow-lg transition-all duration-300">
                         {/* Club Cover (Abstract or Image) */}
                         <div className="h-48 bg-stone-100 relative overflow-hidden">
                             <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10"></div>
+                            {/* Use logo as background blur effectively or a default cover if we had one */}
                             <img src={community.logo} alt={community.name} className="w-full h-full object-cover blur-sm scale-110 opacity-50" />
 
                             <div className="absolute bottom-6 left-6 z-20 flex items-center gap-4">
@@ -44,6 +50,7 @@ export default function ClubsPage() {
                             <div className="grid grid-cols-3 gap-4 py-4 border-t border-b border-border-subtle">
                                 <div className="text-center">
                                     <p className="text-xs font-bold text-text-muted uppercase tracking-wider mb-1">Üyeler</p>
+                                    {/* Mock count for now or perform count query */}
                                     <p className="text-xl font-bold text-text-main">1.2k</p>
                                 </div>
                                 <div className="text-center border-l border-border-subtle">
@@ -61,11 +68,6 @@ export default function ClubsPage() {
 
                             <div className="flex items-center justify-between">
                                 <div className="flex -space-x-2">
-                                    {[1, 2, 3, 4].map(i => (
-                                        <div key={i} className="w-8 h-8 rounded-full bg-stone-100 border-2 border-white flex items-center justify-center text-xs font-bold text-text-muted">
-                                            U{i}
-                                        </div>
-                                    ))}
                                     <div className="w-8 h-8 rounded-full bg-stone-50 border-2 border-white flex items-center justify-center text-xs font-bold text-text-muted">+1k</div>
                                 </div>
 
