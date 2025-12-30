@@ -18,44 +18,47 @@ export default async function CommunityAboutPage({ params }: { params: Promise<{
     }
 
     return (
-        <div className="min-h-screen bg-stone-50/50 font-sans pb-24">
-            <div className="max-w-4xl mx-auto px-6 py-8 animate-in fade-in slide-in-from-bottom-2 duration-500">
+        <div className="min-h-screen bg-cream-100 font-sans pb-24 pt-32 px-4 md:px-8">
+            <div className="max-w-4xl mx-auto animate-in fade-in slide-in-from-bottom-2 duration-500">
 
+                <Link href={`/c/${community.subdomain}`} className="inline-flex items-center gap-2 text-taupe hover:text-obsidian transition-colors text-sm font-bold uppercase tracking-widest mb-8 group">
+                    <ChevronLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+                    Ana Sayfaya Dön
+                </Link>
 
-                <div className="bg-white rounded-3xl shadow-xl shadow-stone-200/50 border border-stone-100 overflow-hidden">
-                    <div className="p-8 md:p-12">
-                        <div className="flex items-center gap-4 mb-8">
-                            <div className="bg-indigo-50 p-3 rounded-2xl text-indigo-600">
-                                <Info className="w-8 h-8" />
-                            </div>
-                            <h1 className="text-3xl font-extrabold text-stone-900">Hakkımızda</h1>
+                <div className="porcelain-glass rounded-[40px] shadow-warm p-8 md:p-12 relative overflow-hidden">
+
+                    <div className="flex items-center gap-6 mb-10">
+                        <div className="w-16 h-16 rounded-2xl bg-cream-50 flex items-center justify-center border border-sandstone shadow-sm text-electric-blue">
+                            <Info className="w-8 h-8" />
                         </div>
+                        <h1 className="text-4xl md:text-5xl font-serif text-obsidian">Hakkımızda</h1>
+                    </div>
 
-                        <div className="prose prose-lg prose-stone max-w-none leading-relaxed">
-                            <p className="text-xl font-medium text-stone-800 mb-8">
-                                {community.description}
-                            </p>
-                            <div className="whitespace-pre-line text-stone-600">
-                                {community.about || "Bu topluluk hakkında henüz detaylı bilgi eklenmemiş."}
-                            </div>
+                    <div className="prose prose-lg prose-stone max-w-none leading-relaxed">
+                        <p className="text-2xl font-serif text-obsidian/90 mb-8 leading-relaxed">
+                            {community.description}
+                        </p>
+                        <div className="whitespace-pre-line text-charcoal font-light text-lg">
+                            {community.about || "Bu topluluk hakkında henüz detaylı bilgi eklenmemiş."}
                         </div>
+                    </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 pt-12 border-t border-stone-100">
-                            <div className="text-center p-6 bg-stone-50 rounded-2xl">
-                                <Users className="w-8 h-8 text-indigo-500 mx-auto mb-3" />
-                                <div className="font-bold text-2xl text-stone-900">1,200+</div>
-                                <div className="text-stone-500 text-sm font-medium">Aktif Üye</div>
-                            </div>
-                            <div className="text-center p-6 bg-stone-50 rounded-2xl">
-                                <Calendar className="w-8 h-8 text-rose-500 mx-auto mb-3" />
-                                <div className="font-bold text-2xl text-stone-900">50+</div>
-                                <div className="text-stone-500 text-sm font-medium">Etkinlik/Yıl</div>
-                            </div>
-                            <div className="text-center p-6 bg-stone-50 rounded-2xl">
-                                <MapPin className="w-8 h-8 text-emerald-500 mx-auto mb-3" />
-                                <div className="font-bold text-2xl text-stone-900">İstanbul</div>
-                                <div className="text-stone-500 text-sm font-medium">Merkez</div>
-                            </div>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16 pt-12 border-t border-sandstone">
+                        <div className="text-center p-6 bg-white/50 rounded-3xl border border-white/60">
+                            <Users className="w-8 h-8 text-electric-blue mx-auto mb-3" />
+                            <div className="font-serif text-3xl text-obsidian">1,200+</div>
+                            <div className="text-taupe text-xs font-bold uppercase tracking-widest mt-1">Aktif Üye</div>
+                        </div>
+                        <div className="text-center p-6 bg-white/50 rounded-3xl border border-white/60">
+                            <Calendar className="w-8 h-8 text-coral mx-auto mb-3" />
+                            <div className="font-serif text-3xl text-obsidian">50+</div>
+                            <div className="text-taupe text-xs font-bold uppercase tracking-widest mt-1">Etkinlik/Yıl</div>
+                        </div>
+                        <div className="text-center p-6 bg-white/50 rounded-3xl border border-white/60">
+                            <MapPin className="w-8 h-8 text-neon-mint mx-auto mb-3" />
+                            <div className="font-serif text-3xl text-obsidian">İstanbul</div>
+                            <div className="text-taupe text-xs font-bold uppercase tracking-widest mt-1">Merkez</div>
                         </div>
                     </div>
                 </div>
