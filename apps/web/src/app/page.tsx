@@ -313,7 +313,7 @@ export default function LandingPage() {
                                 Ücretsiz Başla
                             </Link>
                         </div>
-                        <p className="text-sm text-slate-400">Kredi kartı gerekmez. 14 gün ücretsiz deneme.</p>
+                        <p className="text-sm text-indigo-100/80 font-medium">Kredi kartı gerekmez. 14 gün ücretsiz deneme.</p>
                     </div>
                 </div>
             </section>

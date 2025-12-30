@@ -46,10 +46,10 @@ export default function DashboardView({ stats, recentEvents, pendingMembersList:
     };
 
     return (
-        <div className="min-h-screen bg-cream-100 pb-12 pt-8 px-8 animate-in fade-in zoom-in duration-500">
+        <div className="min-h-screen bg-cream-100 pb-12 pt-8 px-8">
             <div className="max-w-7xl mx-auto space-y-10">
                 {/* Header */}
-                <div className="flex justify-between items-end animate-in slide-in-from-bottom-2 delay-100 duration-700 fill-mode-both">
+                <div className="flex justify-between items-end">
                     <div>
                         <h2 className="text-taupe font-bold uppercase tracking-widest text-xs mb-2">Hoş Geldin, Yönetici 👋</h2>
                         <h1 className="text-4xl md:text-5xl font-serif text-obsidian tracking-tight">Genel Bakış</h1>

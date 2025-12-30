@@ -55,20 +55,20 @@ export default function CommunityView({ community, events }: CommunityViewProps)
                 <div className="porcelain-glass rounded-[24px] p-4 flex flex-col md:flex-row items-center justify-between gap-6 shadow-warm">
                     <div className="flex gap-8 px-4">
                         <div className="flex flex-col items-center md:items-start">
-                            <span className="text-2xl font-serif text-obsidian">{community.stats?.members || '1.2k'}</span>
-                            <span className="text-[10px] font-bold text-taupe uppercase tracking-widest">Üye</span>
+                            <span className="text-lg font-serif text-obsidian font-bold">{community.stats?.members || '1.2k'}</span>
+                            <span className="text-[9px] font-bold text-taupe uppercase tracking-widest">Üye</span>
                         </div>
-                        <div className="w-px bg-sandstone h-10 self-center hidden md:block"></div>
+                        <div className="w-px bg-sandstone h-8 self-center hidden md:block"></div>
                         <div className="flex flex-col items-center md:items-start">
-                            <span className="text-2xl font-serif text-obsidian">{community.stats?.city || 'İstanbul'}</span>
-                            <span className="text-[10px] font-bold text-taupe uppercase tracking-widest">Konum</span>
+                            <span className="text-lg font-serif text-obsidian font-bold">{community.stats?.city || 'İstanbul'}</span>
+                            <span className="text-[9px] font-bold text-taupe uppercase tracking-widest">Konum</span>
                         </div>
-                        <div className="w-px bg-sandstone h-10 self-center hidden md:block"></div>
+                        <div className="w-px bg-sandstone h-8 self-center hidden md:block"></div>
                         <div className="flex flex-col items-center md:items-start">
-                            <span className="text-2xl font-serif text-obsidian flex items-center gap-1">
-                                {community.stats?.score || '4.9'} <Star className="w-4 h-4 text-gold fill-gold" />
+                            <span className="text-lg font-serif text-obsidian font-bold flex items-center gap-1">
+                                {community.stats?.score || '4.9'} <Star className="w-3 h-3 text-gold fill-gold" />
                             </span>
-                            <span className="text-[10px] font-bold text-taupe uppercase tracking-widest">Puan</span>
+                            <span className="text-[9px] font-bold text-taupe uppercase tracking-widest">Puan</span>
                         </div>
                     </div>
 
@@ -183,21 +183,21 @@ export default function CommunityView({ community, events }: CommunityViewProps)
                                     </div>
 
                                     {/* Event Info Card - Increased Padding */}
-                                    <div className="absolute bottom-6 left-6 right-6 p-6 porcelain-glass rounded-[24px] flex flex-col gap-3 group-hover:-translate-y-1 transition-transform duration-300 shadow-lg backdrop-blur-xl">
+                                    <div className="absolute bottom-4 left-4 right-4 p-5 porcelain-glass rounded-[20px] flex flex-col gap-2 group-hover:-translate-y-1 transition-transform duration-300 shadow-lg backdrop-blur-xl">
                                         <div className="flex justify-between items-start">
-                                            <span className="bg-electric-blue text-white text-[10px] font-bold px-2 py-1 rounded-lg uppercase tracking-wide shadow-sm">
+                                            <span className="bg-electric-blue text-white text-[9px] font-bold px-2 py-0.5 rounded-md uppercase tracking-wide shadow-sm">
                                                 {new Date(event.start_date).toLocaleDateString('tr-TR', { day: 'numeric', month: 'long' })}
                                             </span>
-                                            <span className="text-obsidian bg-white/70 px-2 py-1 rounded-lg text-[10px] font-bold border border-white/50">
+                                            <span className="text-obsidian bg-white/70 px-2 py-0.5 rounded-md text-[9px] font-bold border border-white/50">
                                                 {event.platform || 'Canlı'}
                                             </span>
                                         </div>
-                                        <h3 className={clsx("font-serif text-obsidian leading-tight line-clamp-2", idx === 0 ? "text-2xl" : "text-xl")}>
+                                        <h3 className={clsx("font-serif text-obsidian leading-snug line-clamp-2", idx === 0 ? "text-xl" : "text-lg")}>
                                             {event.title}
                                         </h3>
-                                        <div className="flex items-center gap-4 text-xs font-semibold text-charcoal pt-1">
-                                            <div className="flex items-center gap-1.5"><Calendar className="w-3.5 h-3.5 text-taupe" /> {new Date(event.start_date).toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit' })}</div>
-                                            <div className="flex items-center gap-1.5"><MapPin className="w-3.5 h-3.5 text-taupe" /> {event.location || 'Online'}</div>
+                                        <div className="flex items-center gap-3 text-[10px] font-bold text-taupe pt-1 uppercase tracking-wide">
+                                            <div className="flex items-center gap-1"><Calendar className="w-3 h-3" /> {new Date(event.start_date).toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit' })}</div>
+                                            <div className="flex items-center gap-1"><MapPin className="w-3 h-3" /> {event.location || 'Online'}</div>
                                         </div>
                                     </div>
                                 </Link>
