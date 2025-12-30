@@ -84,35 +84,35 @@ export default function CommunityView({ community, events }: CommunityViewProps)
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[minmax(180px,auto)]">
 
                     {/* About Tile */}
-                    <Link href={`/c/${community.subdomain}/about`} className="md:col-span-4 porcelain-glass rounded-[32px] p-8 hover:border-electric-blue transition-colors group flex flex-col justify-between h-full shadow-warm border border-white/50">
+                    <Link href={`/c/${community.subdomain}/about`} className="md:col-span-4 porcelain-glass rounded-[32px] p-10 md:p-12 hover:border-electric-blue transition-colors group flex flex-col justify-between h-full shadow-warm border border-white/50">
                         <div>
-                            <div className="w-12 h-12 rounded-2xl bg-cream-50 border border-sandstone flex items-center justify-center mb-6 text-electric-blue shadow-sm">
-                                <Info className="w-6 h-6" />
+                            <div className="w-14 h-14 rounded-2xl bg-cream-50 border border-sandstone flex items-center justify-center mb-8 text-electric-blue shadow-sm group-hover:scale-110 transition-transform">
+                                <Info className="w-7 h-7" />
                             </div>
-                            <h3 className="font-serif text-2xl text-obsidian mb-2">Hakkımızda</h3>
-                            <p className="text-charcoal line-clamp-3 text-sm leading-relaxed">{community.description}</p>
+                            <h3 className="font-serif text-3xl text-obsidian mb-4">Hakkımızda</h3>
+                            <p className="text-charcoal line-clamp-3 text-base leading-relaxed">{community.description}</p>
                         </div>
-                        <div className="mt-6 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-electric-blue opacity-60 group-hover:opacity-100 transition-opacity">
+                        <div className="mt-8 flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-electric-blue opacity-80 group-hover:opacity-100 transition-opacity">
                             Detaylar <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                         </div>
                     </Link>
 
-                    {/* Gallery Tile - REDESIGNED: White box, right aligned thumbnail */}
-                    <Link href={`/c/${community.subdomain}/gallery`} className="md:col-span-4 porcelain-glass rounded-[32px] p-8 hover:border-electric-blue transition-colors group flex flex-row items-center justify-between h-full shadow-warm border border-white/50">
+                    {/* Gallery Tile */}
+                    <Link href={`/c/${community.subdomain}/gallery`} className="md:col-span-4 porcelain-glass rounded-[32px] p-10 md:p-12 hover:border-electric-blue transition-colors group flex flex-row items-center justify-between h-full shadow-warm border border-white/50">
                         <div className="flex flex-col justify-between h-full">
                             <div>
-                                <div className="w-12 h-12 rounded-2xl bg-cream-50 border border-sandstone flex items-center justify-center mb-6 text-obsidian shadow-sm">
-                                    <ImageIcon className="w-6 h-6" />
+                                <div className="w-14 h-14 rounded-2xl bg-cream-50 border border-sandstone flex items-center justify-center mb-8 text-obsidian shadow-sm group-hover:scale-110 transition-transform">
+                                    <ImageIcon className="w-7 h-7" />
                                 </div>
-                                <h3 className="font-serif text-2xl text-obsidian">Galeri</h3>
-                                <p className="text-taupe text-sm mt-1">{community.gallery?.length || 0} Fotoğraf</p>
+                                <h3 className="font-serif text-3xl text-obsidian">Galeri</h3>
+                                <p className="text-taupe text-sm mt-2 font-medium">{community.gallery?.length || 0} Fotoğraf</p>
                             </div>
-                            <div className="mt-4 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-obsidian opacity-60 group-hover:opacity-100 transition-opacity">
+                            <div className="mt-8 flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-obsidian opacity-80 group-hover:opacity-100 transition-opacity">
                                 İncele <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                             </div>
                         </div>
-                        {/* Thumbnail */}
-                        <div className="w-32 h-32 rounded-[24px] overflow-hidden border border-sandstone shadow-sm rotate-3 group-hover:rotate-0 transition-all duration-300">
+                        {/* Thumbnail - Slightly larger/better positioned */}
+                        <div className="w-36 h-36 rounded-[24px] overflow-hidden border border-sandstone shadow-sm rotate-3 group-hover:rotate-0 transition-all duration-300 ml-4 shrink-0">
                             <img
                                 src={community.gallery?.[0] || community.cover_image}
                                 className="w-full h-full object-cover"
@@ -121,20 +121,20 @@ export default function CommunityView({ community, events }: CommunityViewProps)
                         </div>
                     </Link>
 
-                    {/* Rules Tile - REDESIGNED: Minimal, no gold/black */}
-                    <Link href={`/c/${community.subdomain}/rules`} className="md:col-span-4 porcelain-glass rounded-[32px] p-8 hover:border-electric-blue transition-colors group flex flex-col justify-between h-full shadow-warm border border-white/50">
+                    {/* Rules Tile */}
+                    <Link href={`/c/${community.subdomain}/rules`} className="md:col-span-4 porcelain-glass rounded-[32px] p-10 md:p-12 hover:border-electric-blue transition-colors group flex flex-col justify-between h-full shadow-warm border border-white/50">
                         <div>
-                            <div className="w-12 h-12 rounded-2xl bg-cream-50 border border-sandstone flex items-center justify-center mb-6 text-coral shadow-sm">
-                                <BookOpen className="w-6 h-6" />
+                            <div className="w-14 h-14 rounded-2xl bg-cream-50 border border-sandstone flex items-center justify-center mb-8 text-coral shadow-sm group-hover:scale-110 transition-transform">
+                                <BookOpen className="w-7 h-7" />
                             </div>
-                            <h3 className="font-serif text-2xl text-obsidian mb-2">Kurallar</h3>
-                            <ul className="space-y-2 mt-4">
+                            <h3 className="font-serif text-3xl text-obsidian mb-4">Kurallar</h3>
+                            <ul className="space-y-3 mt-2">
                                 {community.rules?.slice(0, 2).map((r: string, i: number) => (
-                                    <li key={i} className="text-charcoal/80 text-sm flex gap-2 items-center"><span className="w-1.5 h-1.5 rounded-full bg-sandstone"></span> <span className="line-clamp-1">{r}</span></li>
+                                    <li key={i} className="text-charcoal/80 text-sm flex gap-3 items-center"><span className="w-1.5 h-1.5 rounded-full bg-sandstone shrink-0"></span> <span className="line-clamp-2">{r}</span></li>
                                 ))}
                             </ul>
                         </div>
-                        <div className="mt-6 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-coral opacity-60 group-hover:opacity-100 transition-opacity">
+                        <div className="mt-8 flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-coral opacity-80 group-hover:opacity-100 transition-opacity">
                             Oku <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                         </div>
                     </Link>

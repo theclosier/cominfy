@@ -7,24 +7,24 @@ export default function LandingPage() {
     return (
         <div className="min-h-screen bg-background font-sans">
             {/* Header */}
-            <nav className="fixed w-full bg-white/80 backdrop-blur-md border-b border-border/50 z-50">
-                <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            {/* Header - Floating Dock Style */}
+            <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-full max-w-7xl px-4 md:px-6">
+                <div className="bg-white/90 backdrop-blur-md rounded-2xl border border-indigo-100 shadow-lg shadow-indigo-100/50 h-16 flex items-center justify-between px-6 transition-all">
                     <div className="flex items-center gap-2">
-                        {/* Logo Emblem Removed as requested */}
                         <span className="font-bold text-xl tracking-tight text-text-main">COMINFY</span>
                     </div>
 
                     <div className="hidden md:flex items-center gap-8">
                         <div className="flex gap-8 text-sm font-medium text-text-muted">
-                            <a href="#features" className="hover:text-primary transition-colors">Özellikler</a>
-                            <a href="#solutions" className="hover:text-primary transition-colors">Çözümler</a>
-                            <a href="#pricing" className="hover:text-primary transition-colors">Fiyatlandırma</a>
+                            <a href="#features" className="hover:text-indigo-600 transition-colors">Özellikler</a>
+                            <a href="#solutions" className="hover:text-indigo-600 transition-colors">Çözümler</a>
+                            <a href="#pricing" className="hover:text-indigo-600 transition-colors">Fiyatlandırma</a>
                         </div>
                         <div className="flex items-center gap-4">
-                            <Link href="/yntm/login" className="text-sm font-semibold text-text-main hover:text-accent transition-colors">
+                            <Link href="/yntm/login" className="text-sm font-semibold text-text-main hover:text-indigo-600 transition-colors">
                                 Giriş Yap
                             </Link>
-                            <Link href="/register" className="btn-primary py-2 px-5 h-10">
+                            <Link href="/register" className="btn-primary py-2 px-5 h-9 text-sm shadow-indigo-200">
                                 Kayıt Ol
                             </Link>
                         </div>
@@ -61,7 +61,7 @@ export default function LandingPage() {
 
                     {/* Hero Visual Mockup */}
                     <div className="pt-16 px-4">
-                        <div className="relative rounded-2xl border border-border shadow-2xl shadow-indigo-100 bg-white p-2 max-w-5xl mx-auto transform hover:scale-[1.01] transition-transform duration-500">
+                        <div className="relative rounded-2xl border border-indigo-100 shadow-2xl shadow-indigo-100 bg-white p-2 max-w-5xl mx-auto transform hover:scale-[1.01] transition-transform duration-500">
                             <div className="rounded-xl overflow-hidden bg-surface-hover aspect-[16/9] flex items-center justify-center border border-border-subtle">
                                 <div className="text-center space-y-4 opacity-50">
                                     <Layout className="w-16 h-16 mx-auto text-indigo-300" />
@@ -74,7 +74,7 @@ export default function LandingPage() {
             </section>
 
             {/* Social Proof */}
-            <section className="py-12 border-y border-border-subtle bg-white">
+            <section className="py-12 border-y border-indigo-50 bg-white">
                 <div className="max-w-7xl mx-auto px-6 text-center">
                     <p className="text-sm font-semibold text-text-muted mb-8 uppercase tracking-widest">2,000+ Topluluk Yöneticisi Tarafından Güveniliyor</p>
                     <div className="flex flex-wrap justify-center gap-8 md:gap-12">
@@ -101,7 +101,7 @@ export default function LandingPage() {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                         <div className="order-2 lg:order-1 relative">
                             <div className="absolute inset-0 bg-pastel-purple rounded-full blur-3xl opacity-60 transform -translate-x-10"></div>
-                            <div className="relative rounded-2xl border border-border shadow-lg bg-white p-8 space-y-6">
+                            <div className="relative rounded-2xl border border-indigo-100 shadow-lg bg-white p-8 space-y-6">
                                 <div className="flex items-center gap-4 p-4 rounded-xl bg-surface-hover border border-border-subtle">
                                     <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center shadow-sm text-indigo-600"><Zap className="w-6 h-6" /></div>
                                     <div>
@@ -154,7 +154,7 @@ export default function LandingPage() {
                         </div>
                         <div className="relative">
                             <div className="absolute inset-0 bg-pastel-green rounded-full blur-3xl opacity-60 transform translate-x-10"></div>
-                            <div className="relative rounded-2xl border border-border shadow-lg bg-white p-8 grid grid-cols-2 gap-4">
+                            <div className="relative rounded-2xl border border-indigo-100 shadow-lg bg-white p-8 grid grid-cols-2 gap-4">
                                 <div className="col-span-2 p-4 rounded-xl bg-surface-hover border border-border-subtle flex items-center gap-4">
                                     <div className="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 font-bold">JD</div>
                                     <div>
@@ -227,7 +227,7 @@ export default function LandingPage() {
             </section>
 
             {/* Pricing Section */}
-            <section id="pricing" className="py-24 px-6 bg-slate-50 border-y border-border-subtle">
+            <section id="pricing" className="py-24 px-6 bg-slate-50 border-y border-indigo-50">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center max-w-3xl mx-auto mb-16">
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-100 text-orange-700 text-xs font-bold uppercase tracking-wide mb-4">
@@ -239,7 +239,7 @@ export default function LandingPage() {
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
                         {/* Free Plan */}
-                        <div className="p-8 rounded-2xl bg-white border border-border shadow-sm hover:shadow-md transition-all">
+                        <div className="p-8 rounded-2xl bg-white border border-indigo-100 shadow-sm hover:shadow-md transition-all">
                             <div className="mb-6">
                                 <h3 className="text-xl font-bold text-text-main">Başlangıç</h3>
                                 <p className="text-text-muted text-sm mt-1">Yeni başlayan topluluklar için.</p>
@@ -279,7 +279,7 @@ export default function LandingPage() {
                         </div>
 
                         {/* Enterprise Plan */}
-                        <div className="p-8 rounded-2xl bg-white border border-border shadow-sm hover:shadow-md transition-all">
+                        <div className="p-8 rounded-2xl bg-white border border-indigo-100 shadow-sm hover:shadow-md transition-all">
                             <div className="mb-6">
                                 <h3 className="text-xl font-bold text-text-main">Kurumsal</h3>
                                 <p className="text-text-muted text-sm mt-1">Büyük organizasyonlar için.</p>
@@ -287,7 +287,7 @@ export default function LandingPage() {
                             <div className="mb-6">
                                 <span className="text-4xl font-extrabold text-text-main">Özel</span>
                             </div>
-                            <Link href="/contact" className="btn-secondary w-full justify-center mb-8">İletişime Geç</Link>
+                            <Link href="mailto:hello@cominfy.com" className="btn-secondary w-full justify-center mb-8">İletişime Geç</Link>
                             <ul className="space-y-3 text-sm">
                                 <li className="flex items-center gap-3 text-text-main"><Check className="w-4 h-4 text-emerald-500 flex-shrink-0" /> Sınırsız Üye</li>
                                 <li className="flex items-center gap-3 text-text-main"><Check className="w-4 h-4 text-emerald-500 flex-shrink-0" /> Özel API Erişimi</li>
@@ -319,7 +319,7 @@ export default function LandingPage() {
             </section>
 
             {/* Footer */}
-            <footer className="bg-white border-t border-border pt-16 pb-12">
+            <footer className="bg-white border-t border-indigo-50 pt-16 pb-12">
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="grid grid-cols-1 md:grid-cols-6 gap-12 mb-16">
                         <div className="col-span-2 space-y-6">

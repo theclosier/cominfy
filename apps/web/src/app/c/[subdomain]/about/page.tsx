@@ -19,7 +19,7 @@ export default async function CommunityAboutPage({ params }: { params: Promise<{
 
     return (
         <div className="min-h-screen bg-cream-100 font-sans pb-24 pt-32 px-4 md:px-8">
-            <div className="max-w-4xl mx-auto animate-in fade-in slide-in-from-bottom-2 duration-500">
+            <div className="max-w-7xl mx-auto animate-in fade-in slide-in-from-bottom-2 duration-500">
 
 
 

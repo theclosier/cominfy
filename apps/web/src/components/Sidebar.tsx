@@ -21,7 +21,9 @@ export function Sidebar() {
         <aside className="w-64 fixed left-0 top-0 h-screen bg-cream-200 border-r border-sandstone p-6 flex flex-col z-40 hidden md:flex">
             {/* Brand - Text Only */}
             <div className="flex items-center gap-3 px-2 mb-10">
-                <span className="font-serif font-black text-2xl tracking-tighter text-obsidian">COMINFY</span>
+                <Link href="/yntm/dashboard" className="font-serif font-black text-2xl tracking-tighter text-obsidian hover:opacity-80 transition-opacity">
+                    COMINFY
+                </Link>
             </div>
 
             {/* Navigation */}
