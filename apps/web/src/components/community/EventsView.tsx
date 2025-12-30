@@ -95,39 +95,55 @@ export default function EventsView({ community, events }: EventsViewProps) {
                                 key={event.id}
                                 className="group bg-white rounded-[32px] border border-sandstone overflow-hidden hover:shadow-xl hover:border-electric-blue/30 transition-all duration-300 flex flex-col h-full shadow-warm"
                             >
-                                {/* Image Area */}
-                                <div className="relative h-64 overflow-hidden">
+                                {/* Image Area - Aspect 4/3 like Admin Panel */}
+                                <div className="relative aspect-[4/3] w-full overflow-hidden bg-cream-50">
                                     <img
                                         src={event.cover_image || community.cover_image || "https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=1000&auto=format&fit=crop"}
                                         alt={event.title}
                                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60" />
 
-
+                                    {/* Top Right "YAYINDA" Badge */}
+                                    <div className="absolute top-4 right-4">
+                                        <span className="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider shadow-sm backdrop-blur-md border border-white/20 bg-emerald-100/90 text-emerald-700">
+                                            YAYINDA
+                                        </span>
+                                    </div>
                                 </div>
 
                                 {/* Content Area */}
-                                <div className="p-6 flex flex-col flex-1">
-                                    <div className="flex items-center gap-2 mb-3">
-                                        <div className="bg-cream-50 text-obsidian text-xs font-bold px-3 py-1 rounded-lg border border-sandstone flex items-center gap-1.5">
-                                            <Calendar className="w-3 h-3 text-electric-blue" />
-                                            {new Date(event.start_date).toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', year: 'numeric' })}
+                                <div className="p-6 flex flex-col flex-1 justify-between">
+                                    <div>
+                                        {/* Meta Line */}
+                                        <div className="flex items-center gap-2 mb-3">
+                                            <span className="text-xs font-bold text-obsidian uppercase tracking-wider">{event.platform || 'Cominfy'}</span>
+                                            <span className="text-taupe text-[10px]">•</span>
+                                            <span className="text-xs font-medium text-taupe flex items-center gap-1">
+                                                <Calendar className="w-3 h-3" />
+                                                {new Date(event.start_date).toLocaleDateString('tr-TR', { month: 'short', day: 'numeric' })}
+                                            </span>
                                         </div>
+
+                                        {/* Title */}
+                                        <h3 className="text-xl font-serif text-obsidian leading-tight mb-2 group-hover:text-electric-blue transition-colors">
+                                            {event.title}
+                                        </h3>
+
+                                        {/* Description */}
+                                        <p className="text-taupe text-sm line-clamp-2 leading-relaxed font-medium">
+                                            {event.description || 'Etkinlik detayları için tıklayın.'}
+                                        </p>
                                     </div>
 
-                                    <h3 className="text-2xl font-serif text-obsidian leading-tight mb-3 line-clamp-2 group-hover:text-electric-blue transition-colors">
-                                        {event.title}
-                                    </h3>
-
-                                    <div className="mt-auto pt-4 border-t border-sandstone/50 flex items-center justify-between text-taupe text-xs font-medium">
-                                        <div className="flex items-center gap-1.5">
-                                            <MapPin className="w-3.5 h-3.5" />
-                                            <span className="truncate max-w-[120px]">{event.location || 'Online'}</span>
+                                    {/* Footer Line */}
+                                    <div className="mt-6 pt-6 border-t border-sandstone/50 flex items-center justify-between">
+                                        <div className="flex items-center text-xs font-bold text-taupe uppercase tracking-wide">
+                                            <MapPin className="w-3.5 h-3.5 mr-1.5 text-taupe" />
+                                            {event.location || 'Online'}
                                         </div>
-                                        <span className="group-hover:translate-x-1 transition-transform text-electric-blue font-bold uppercase tracking-wider flex items-center gap-1">
-                                            Detaylar
-                                        </span>
+                                        <div className="w-8 h-8 rounded-full bg-cream-50 flex items-center justify-center text-taupe group-hover:bg-electric-blue group-hover:text-white transition-colors border border-sandstone">
+                                            <ArrowRight className="w-4 h-4" />
+                                        </div>
                                     </div>
                                 </div>
                             </Link>
