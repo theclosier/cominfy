@@ -70,74 +70,7 @@ export default function ProfileView({ community, userProfile }: ProfileViewProps
     return (
         <div className="min-h-screen bg-stone-50/50 font-sans pb-24">
             {/* --- COMPACT HEADER (Same as Community Page) --- */}
-            <div className="bg-white border-b border-border-subtle sticky top-0 z-40 shadow-sm/50 mb-8">
-                <div className="max-w-7xl mx-auto px-6 py-4">
-                    <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-
-                        {/* Left: Logo & Name */}
-                        <div className="flex items-center gap-4 flex-1 w-full md:w-auto">
-                            <Link href={`/c/${community.subdomain}`}>
-                                <img
-                                    src={community.logo}
-                                    alt={community.name}
-                                    className="w-16 h-16 rounded-xl border border-stone-100 shadow-sm hover:opacity-90 transition-opacity"
-                                />
-                            </Link>
-                            <div>
-                                <Link href={`/c/${community.subdomain}`} className="text-2xl font-bold text-text-main leading-tight hover:text-primary transition-colors">
-                                    {community.name}
-                                </Link>
-                                <div className="flex gap-2 mt-1">
-                                    {community.socials?.website && <a href={community.socials.website} className="text-text-muted hover:text-primary"><Globe className="w-4 h-4" /></a>}
-                                    {community.socials?.twitter && <a href={community.socials.twitter} className="text-text-muted hover:text-[#1DA1F2]"><Twitter className="w-4 h-4" /></a>}
-                                    {community.socials?.instagram && <a href={community.socials.instagram} className="text-text-muted hover:text-[#E1306C]"><Instagram className="w-4 h-4" /></a>}
-                                    {community.socials?.linkedin && <a href={community.socials.linkedin} className="text-text-muted hover:text-[#0077b5]"><Linkedin className="w-4 h-4" /></a>}
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Right: Stats & Action */}
-                        <div className="flex items-center gap-8 w-full md:w-auto justify-between md:justify-end">
-                            <div className="flex gap-8 text-sm">
-                                <div className="text-right">
-                                    <div className="font-bold text-text-main text-lg">{community.stats?.members || 120}</div>
-                                    <div className="text-text-muted text-xs uppercase tracking-wide">Üye</div>
-                                </div>
-                                <div className="text-right border-l border-border-subtle pl-8">
-                                    <div className="font-bold text-text-main text-lg">{community.stats?.city || 'İstanbul'}</div>
-                                    <div className="text-text-muted text-xs uppercase tracking-wide">Konum</div>
-                                </div>
-                                <div className="text-right border-l border-border-subtle pl-8">
-                                    <div className="font-bold text-text-main text-lg flex items-center gap-1 justify-end">
-                                        <Star className="w-4 h-4 text-amber-400 fill-amber-400" /> 4.9
-                                    </div>
-                                    <div className="text-text-muted text-xs uppercase tracking-wide">Puan</div>
-                                </div>
-                            </div>
-
-                            <div className="flex items-center gap-4">
-                                <Link href={`/c/${community.subdomain}/profile`} className="flex items-center gap-3 bg-stone-50 border border-stone-200 rounded-xl p-1.5 pr-4 hover:border-primary/50 hover:bg-white transition-all group cursor-pointer shadow-sm">
-                                    <div className="w-9 h-9 bg-primary text-white rounded-lg flex items-center justify-center font-bold text-sm group-hover:scale-105 transition-transform">
-                                        {user.name[0]}
-                                    </div>
-                                    <div>
-                                        <div className="text-xs font-bold text-text-main group-hover:text-primary transition-colors">{user.name}</div>
-                                        <div className="text-[10px] text-text-muted font-bold uppercase tracking-wide">Üye</div>
-                                    </div>
-                                </Link>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <main className="max-w-3xl mx-auto px-6 py-8 animate-in fade-in zoom-in duration-500">
-                <Link href={`/c/${community.subdomain}`} className="inline-flex items-center gap-2 text-stone-500 hover:text-stone-900 transition-colors text-sm font-medium mb-6">
-                    <ChevronLeft className="w-4 h-4" />
-                    Topluluğa Dön
-                </Link>
-
+            <main className="max-w-3xl mx-auto px-6 py-32 animate-in fade-in zoom-in duration-500">
                 <div className="bg-white rounded-3xl shadow-xl shadow-stone-200/50 border border-stone-100 overflow-hidden">
                     <div className="px-8 py-6 border-b border-stone-100 flex items-center justify-between bg-stone-50/50">
                         <h1 className="text-2xl font-bold text-stone-900">Profil Düzenle</h1>

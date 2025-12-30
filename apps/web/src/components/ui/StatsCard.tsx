@@ -22,25 +22,25 @@ export function StatsCard({ title, value, icon: Icon, trend, trendUp, color = 'b
     };
 
     return (
-        <div className="glass-card p-6 transition-all duration-300 hover:scale-[1.02] hover:shadow-md cursor-default group">
+        <div className="porcelain-glass rounded-[24px] p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg cursor-default group">
             <div className="flex justify-between items-start mb-4">
-                <div className={clsx("p-3 rounded-xl transition-colors duration-300", colors[color], "group-hover:scale-110")}>
+                <div className={clsx("p-3 rounded-2xl transition-colors duration-300 shadow-sm border border-white/50", colors[color], "group-hover:scale-110")}>
                     <Icon className="w-6 h-6" />
                 </div>
                 {trend && (
                     <span className={clsx(
                         "text-xs font-bold px-2.5 py-1 rounded-full border",
                         trendUp
-                            ? "bg-emerald-50 text-emerald-700 border-emerald-100"
-                            : "bg-rose-50 text-rose-700 border-rose-100"
+                            ? "bg-neon-mint/10 text-emerald-700 border-neon-mint/20"
+                            : "bg-coral/10 text-coral border-coral/20"
                     )}>
                         {trend}
                     </span>
                 )}
             </div>
             <div>
-                <p className="text-sm font-medium text-stone-500 mb-1">{title}</p>
-                <h3 className="text-3xl font-bold text-stone-900 tracking-tight">{value}</h3>
+                <p className="text-xs font-bold uppercase tracking-widest text-taupe mb-1">{title}</p>
+                <h3 className="text-3xl font-serif text-obsidian tracking-tight">{value}</h3>
             </div>
         </div>
     );

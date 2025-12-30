@@ -41,15 +41,7 @@ export default function EventDetailView({ event, community }: EventDetailViewPro
         <div className="min-h-screen pt-28 pb-20 px-4 md:px-8">
             <main className="max-w-6xl mx-auto px-6 py-8 animate-in fade-in zoom-in duration-500">
 
-                {/* --- NAVIGATION GRID --- */}
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-8">
-                    <div className="md:col-span-12">
-                        <Link href={`/c/${community.subdomain}`} className="inline-flex items-center gap-2 text-taupe hover:text-obsidian transition-colors text-sm font-bold uppercase tracking-widest mb-6 group">
-                            <ChevronLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-                            Etkinliklere Dön
-                        </Link>
-                    </div>
-                </div>
+                {/* --- CONTENT START --- */}
 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
 

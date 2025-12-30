@@ -21,10 +21,7 @@ export default async function CommunityAboutPage({ params }: { params: Promise<{
         <div className="min-h-screen bg-cream-100 font-sans pb-24 pt-32 px-4 md:px-8">
             <div className="max-w-4xl mx-auto animate-in fade-in slide-in-from-bottom-2 duration-500">
 
-                <Link href={`/c/${community.subdomain}`} className="inline-flex items-center gap-2 text-taupe hover:text-obsidian transition-colors text-sm font-bold uppercase tracking-widest mb-8 group">
-                    <ChevronLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-                    Ana Sayfaya Dön
-                </Link>
+
 
                 <div className="porcelain-glass rounded-[40px] shadow-warm p-8 md:p-12 relative overflow-hidden">
 

@@ -18,14 +18,14 @@ export function Sidebar() {
     ];
 
     return (
-        <aside className="w-64 fixed left-0 top-0 h-screen bg-background border-r border-border-subtle p-6 flex flex-col z-40 hidden md:flex">
+        <aside className="w-64 fixed left-0 top-0 h-screen bg-cream-200 border-r border-sandstone p-6 flex flex-col z-40 hidden md:flex">
             {/* Brand - Text Only */}
             <div className="flex items-center gap-3 px-2 mb-10">
-                <span className="font-extrabold text-2xl tracking-tight text-text-main">COMINFY</span>
+                <span className="font-serif font-black text-2xl tracking-tighter text-obsidian">COMINFY</span>
             </div>
 
             {/* Navigation */}
-            <nav className="flex-1 space-y-1">
+            <nav className="flex-1 space-y-2">
                 {navItems.map((item) => {
                     const isActive = pathname === item.href || (item.href !== '/yntm/dashboard' && pathname.startsWith(item.href));
                     return (
@@ -33,32 +33,37 @@ export function Sidebar() {
                             key={item.href}
                             href={item.href}
                             className={clsx(
-                                "sidebar-link group",
-                                isActive && "active"
+                                "flex items-center gap-3 px-4 py-3 rounded-2xl transition-all duration-300 group",
+                                isActive
+                                    ? "bg-white shadow-sm border border-sandstone text-electric-blue"
+                                    : "text-taupe hover:bg-white/50 hover:text-obsidian"
                             )}
                         >
-                            <item.icon className={clsx("w-5 h-5", isActive ? "text-primary" : "text-text-muted group-hover:text-text-main")} />
-                            {item.name}
+                            <item.icon className={clsx("w-5 h-5 transition-colors", isActive ? "text-electric-blue" : "text-taupe group-hover:text-obsidian")} />
+                            <span className={clsx("font-bold text-sm tracking-wide", isActive ? "font-extrabold" : "font-medium")}>
+                                {item.name}
+                            </span>
                         </Link>
                     );
                 })}
             </nav>
 
             {/* User Profile Snippet */}
-            <div className="mt-auto px-2 py-4 border-t border-border-subtle flex items-center gap-2">
-                <Link href="/profile" className="flex-1 flex items-center gap-3 p-2 rounded-xl hover:bg-surface-hover transition-colors cursor-pointer group min-w-0">
-                    <div className="w-10 h-10 rounded-full bg-white border border-border shadow-sm overflow-hidden group-hover:border-accent transition-colors flex-shrink-0">
-                        <img src="https://ui-avatars.com/api/?name=Admin+User&background=random" alt="Kullanıcı" className="w-full h-full object-cover" />
+            <div className="mt-auto pt-6 border-t border-sandstone flex items-center gap-2">
+                <Link href="/profile" className="flex-1 flex items-center gap-3 p-2 rounded-2xl hover:bg-white transition-all cursor-pointer group min-w-0 border border-transparent hover:border-sandstone">
+                    <div className="w-10 h-10 rounded-full bg-cream-50 border border-sandstone flex items-center justify-center text-obsidian font-serif font-bold group-hover:border-electric-blue transition-colors flex-shrink-0">
+                        {/* Simple Initial Avatar instead of broken image */}
+                        A
                     </div>
                     <div className="flex-1 min-w-0 overflow-hidden">
-                        <p className="text-sm font-bold text-text-main truncate group-hover:text-accent transition-colors">Jane Doe</p>
-                        <p className="text-xs text-text-muted truncate">Topluluk Lideri</p>
+                        <p className="text-sm font-bold text-obsidian truncate group-hover:text-electric-blue transition-colors">Yönetici</p>
+                        <p className="text-xs text-taupe truncate">Topluluk Lideri</p>
                     </div>
                 </Link>
 
                 <Link
                     href="/login"
-                    className="p-2 text-text-muted hover:text-rose-600 hover:bg-rose-50 rounded-lg transition-colors flex-shrink-0"
+                    className="p-2.5 text-taupe hover:text-coral hover:bg-coral/10 rounded-xl transition-colors flex-shrink-0"
                     title="Çıkış Yap"
                 >
                     <LogOut className="w-5 h-5" />
