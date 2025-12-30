@@ -145,66 +145,79 @@ export default function CommunityView({ community, events }: CommunityViewProps)
                 <div>
                     <div className="flex items-center justify-between mb-8">
                         <h2 className="text-3xl font-serif text-obsidian">Etkinlikler</h2>
-                        <div className="flex bg-cream-200 p-1 rounded-full border border-sandstone/50">
-                            <button
-                                onClick={() => setEventFilter('UPCOMING')}
-                                className={clsx("px-6 py-2 rounded-full text-xs font-bold uppercase tracking-wide transition-all", eventFilter === 'UPCOMING' ? "bg-white shadow-sm text-obsidian" : "text-taupe hover:text-charcoal")}
-                            >
-                                Yaklaşan
-                            </button>
-                            <button
-                                onClick={() => setEventFilter('PAST')}
-                                className={clsx("px-6 py-2 rounded-full text-xs font-bold uppercase tracking-wide transition-all", eventFilter === 'PAST' ? "bg-white shadow-sm text-obsidian" : "text-taupe hover:text-charcoal")}
-                            >
-                                Geçmiş
-                            </button>
-                        </div>
+                        <Link href={`/c/${community.subdomain}/events`} className="text-xs text-electric-blue font-bold uppercase tracking-widest flex items-center gap-1 hover:underline">
+                            Tümünü Gör <ArrowRight className="w-4 h-4 ml-0.5" />
+                        </Link>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[minmax(300px,auto)]">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {filteredEvents.length > 0 ? (
-                            filteredEvents.map((event, idx) => (
+                            filteredEvents.slice(0, 3).map((event) => (
                                 <Link
                                     href={`/c/${community.subdomain}/events/${event.id}`}
                                     key={event.id}
-                                    className={clsx(
-                                        "group relative overflow-hidden rounded-[32px] border border-sandstone bg-white shadow-warm hover:shadow-xl transition-all duration-500",
-                                        // First item is span-8 (Large), others span-4 (Small)
-                                        idx === 0 ? "md:col-span-8" : "md:col-span-4"
-                                    )}
+                                    className="group bg-white rounded-[32px] border border-sandstone overflow-hidden hover:shadow-xl hover:border-electric-blue/30 transition-all duration-300 flex flex-col h-full shadow-warm"
                                 >
-                                    <div className="absolute inset-0">
+                                    {/* Image Area - Aspect 4/3 like Admin Panel */}
+                                    <div className="relative aspect-[4/3] w-full overflow-hidden bg-cream-50">
                                         <img
-                                            src={event.cover_image || community.cover_image || "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop"}
+                                            src={event.cover_image || community.cover_image || "https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=1000&auto=format&fit=crop"}
                                             alt={event.title}
                                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                                         />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
-                                    </div>
 
-                                    {/* Event Info Card - Increased Padding */}
-                                    <div className="absolute bottom-5 left-5 right-5 p-5 porcelain-glass rounded-[24px] flex flex-col gap-2 group-hover:-translate-y-1 transition-transform duration-300 shadow-lg backdrop-blur-xl">
-                                        <div className="flex justify-between items-start">
-                                            <span className="bg-electric-blue text-white text-[10px] font-bold px-2.5 py-1 rounded-lg uppercase tracking-wide shadow-sm">
-                                                {new Date(event.start_date).toLocaleDateString('tr-TR', { day: 'numeric', month: 'long' })}
-                                            </span>
-                                            <span className="text-obsidian bg-white/70 px-2.5 py-1 rounded-lg text-[10px] font-bold border border-white/50">
-                                                {event.platform || 'Canlı'}
+                                        {/* Top Right "YAYINDA" Badge */}
+                                        <div className="absolute top-4 right-4">
+                                            <span className="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider shadow-sm backdrop-blur-md border border-white/20 bg-emerald-100/90 text-emerald-700">
+                                                YAYINDA
                                             </span>
                                         </div>
-                                        <h3 className={clsx("font-serif text-obsidian leading-snug line-clamp-2 mt-1", idx === 0 ? "text-2xl" : "text-xl")}>
-                                            {event.title}
-                                        </h3>
-                                        <div className="flex items-center gap-4 text-xs font-bold text-taupe pt-1 uppercase tracking-wide">
-                                            <div className="flex items-center gap-1.5"><Calendar className="w-4 h-4 text-taupe" /> {new Date(event.start_date).toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit' })}</div>
-                                            <div className="flex items-center gap-1.5"><MapPin className="w-4 h-4 text-taupe" /> {event.location || 'Online'}</div>
+                                    </div>
+
+                                    {/* Content Area */}
+                                    <div className="p-6 flex flex-col flex-1 justify-between">
+                                        <div>
+                                            {/* Meta Line */}
+                                            <div className="flex items-center gap-2 mb-3">
+                                                <span className="text-xs font-bold text-obsidian uppercase tracking-wider">{event.platform || 'Cominfy'}</span>
+                                                <span className="text-taupe text-[10px]">•</span>
+                                                <span className="text-xs font-medium text-taupe flex items-center gap-1">
+                                                    <Calendar className="w-3 h-3" />
+                                                    {new Date(event.start_date).toLocaleDateString('tr-TR', { month: 'short', day: 'numeric' })}
+                                                </span>
+                                            </div>
+
+                                            {/* Title */}
+                                            <h3 className="text-xl font-serif text-obsidian leading-tight mb-2 group-hover:text-electric-blue transition-colors">
+                                                {event.title}
+                                            </h3>
+
+                                            {/* Description */}
+                                            <p className="text-taupe text-sm line-clamp-2 leading-relaxed font-medium">
+                                                {event.description || 'Etkinlik detayları için tıklayın.'}
+                                            </p>
+                                        </div>
+
+                                        {/* Footer Line */}
+                                        <div className="mt-6 pt-6 border-t border-sandstone/50 flex items-center justify-between">
+                                            <div className="flex items-center text-xs font-bold text-taupe uppercase tracking-wide">
+                                                <MapPin className="w-3.5 h-3.5 mr-1.5 text-taupe" />
+                                                {event.location || 'Online'}
+                                            </div>
+                                            <div className="w-8 h-8 rounded-full bg-cream-50 flex items-center justify-center text-taupe group-hover:bg-electric-blue group-hover:text-white transition-colors border border-sandstone">
+                                                <ArrowRight className="w-4 h-4" />
+                                            </div>
                                         </div>
                                     </div>
                                 </Link>
                             ))
                         ) : (
-                            <div className="md:col-span-12 py-20 text-center bg-white/40 rounded-[32px] border border-sandstone border-dashed">
-                                <p className="text-taupe font-serif text-xl italic">Bu kategoride etkinlik bulunamadı.</p>
+                            <div className="col-span-full py-20 text-center bg-white/40 rounded-[32px] border border-sandstone border-dashed">
+                                <div className="w-16 h-16 bg-cream-50 rounded-2xl flex items-center justify-center mx-auto mb-4 text-taupe">
+                                    <Calendar className="w-8 h-8 opacity-50" />
+                                </div>
+                                <h3 className="text-xl font-serif text-obsidian mb-2">Etkinlik Bulunamadı</h3>
+                                <p className="text-taupe">Bu toplulukta henüz etkinlik oluşturulmamış.</p>
                             </div>
                         )}
                     </div>
