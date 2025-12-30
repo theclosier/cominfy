@@ -24,7 +24,7 @@ export default async function CommunityLayout({
     // We'll pass basic data to header.
 
     return (
-        <div className="flex flex-col min-h-screen bg-stone-50/50 font-sans">
+        <div className="flex flex-col min-h-screen bg-cream-100 font-sans text-obsidian">
             {/* Global Community Header */}
             {community && <CommunityHeader community={community} />}
 
@@ -32,7 +32,7 @@ export default async function CommunityLayout({
                 {children}
             </div>
 
-            <footer className="py-8 bg-stone-50 border-t border-stone-100 text-center">
+            <footer className="py-8 bg-cream-200 border-t border-sandstone text-center mt-auto">
                 <Link
                     href="/"
                     className="inline-flex items-center gap-2 text-stone-400 hover:text-indigo-600 transition-colors text-xs font-bold tracking-widest uppercase opacity-60 hover:opacity-100"

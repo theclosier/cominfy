@@ -46,72 +46,70 @@ export default function CommunityHeader({ community }: CommunityHeaderProps) {
     }, []);
 
     return (
-        <div className="sticky top-0 z-50 border-b border-stone-200/50 bg-white/80 backdrop-blur-md transition-all duration-300">
-            <div className="max-w-7xl mx-auto px-6 py-4">
-                <div className="grid grid-cols-3 items-center">
+    return (
+        <header className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-full max-w-4xl px-4">
+            <div className="porcelain-glass rounded-2xl px-6 py-3 flex items-center justify-between shadow-warm transition-all duration-300 hover:shadow-lg">
 
-                    {/* Left: Spacer */}
-                    <div className="hidden md:block">
-                        <Link
-                            href={`/c/${community.subdomain}`}
-                            className="text-xs font-bold text-text-muted hover:text-text-main transition-colors uppercase tracking-wider"
-                        >
-                            Ana Sayfa
-                        </Link>
-                    </div>
-
-                    {/* Center: Community Name (Text Only & Centered) */}
-                    <div className="text-center">
-                        <Link href={`/c/${community.subdomain}`} className="text-2xl font-bold text-text-main leading-tight tracking-tight hover:opacity-80 transition-opacity">
+                {/* Left: Community Brand */}
+                <div className="flex items-center gap-3">
+                    <Link href={`/c/${community.subdomain}`} className="flex items-center gap-3 group">
+                        {/* Optional: Add a subtle logo placeholder or keep text only if no logo */}
+                        <span className="font-serif text-xl font-semibold text-obsidian tracking-tight group-hover:opacity-80 transition-opacity">
                             {community.name}
-                        </Link>
-                    </div>
+                        </span>
+                    </Link>
+                </div>
 
-                    {/* Right: Actions */}
-                    <div className="flex justify-end gap-4">
-                        {isLoggedIn ? (
-                            <div className="flex items-center gap-4">
-                                <Link href={`/c/${community.subdomain}/profile`} className="flex items-center gap-3 bg-stone-50/80 border border-stone-200/60 rounded-xl p-1.5 pr-4 hover:border-primary/50 hover:bg-white transition-all group cursor-pointer shadow-sm">
-                                    <div className="w-9 h-9 bg-primary text-white rounded-lg flex items-center justify-center font-bold text-sm group-hover:scale-105 transition-transform">
-                                        {user?.email?.[0].toUpperCase() || 'U'}
-                                    </div>
-                                    <div className="hidden md:block">
-                                        <div className="text-xs font-bold text-text-main group-hover:text-primary transition-colors">{user?.email?.split('@')[0]}</div>
-                                        <div className="text-[10px] text-text-muted font-bold uppercase tracking-wide">Üye</div>
-                                    </div>
-                                </Link>
-                                <button
-                                    onClick={async () => {
-                                        const supabase = createClient();
-                                        await supabase.auth.signOut();
-                                        window.location.reload();
-                                    }}
-                                    className="p-2.5 text-text-muted hover:text-red-500 hover:bg-red-50 rounded-xl transition-colors"
-                                    title="Çıkış Yap"
-                                >
-                                    <LogIn className="w-5 h-5 rotate-180" />
-                                </button>
-                            </div>
-                        ) : (
-                            <div className="flex items-center gap-3">
-                                <Link
-                                    href={`/c/${community.subdomain}/login`}
-                                    className="hidden md:flex px-5 py-2.5 text-sm font-bold text-text-main hover:bg-stone-50 rounded-xl transition-colors border border-transparent hover:border-stone-200 items-center gap-2"
-                                >
-                                    <LogIn className="w-4 h-4" />
-                                    Giriş Yap
-                                </Link>
-                                <Link
-                                    href={`/c/${community.subdomain}/join`}
-                                    className="btn-primary py-2.5 px-6 shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/30 whitespace-nowrap text-sm"
-                                >
-                                    Katıl
-                                </Link>
-                            </div>
-                        )}
-                    </div>
+                {/* Center: Essential Nav (Hidden on small mobile) */}
+                <nav className="hidden md:flex items-center gap-6">
+                    <Link href={`/c/${community.subdomain}`} className="text-sm font-medium text-charcoal hover:text-electric-blue transition-colors">
+                        Etkinlikler
+                    </Link>
+                    <Link href={`/c/${community.subdomain}/about`} className="text-sm font-medium text-charcoal hover:text-electric-blue transition-colors">
+                        Hakkında
+                    </Link>
+                </nav>
+
+                {/* Right: User Actions */}
+                <div className="flex items-center gap-3">
+                    {isLoggedIn ? (
+                        <div className="flex items-center gap-2 pl-4 border-l border-sandstone">
+                            <Link href={`/c/${community.subdomain}/profile`} className="group flex items-center gap-2">
+                                <div className="w-8 h-8 rounded-full bg-cream-200 border border-sandstone flex items-center justify-center text-xs font-bold text-obsidian group-hover:border-electric-blue transition-colors">
+                                    {user?.email?.[0].toUpperCase() || 'U'}
+                                </div>
+                            </Link>
+                            <button
+                                onClick={async () => {
+                                    const supabase = createClient();
+                                    await supabase.auth.signOut();
+                                    window.location.reload();
+                                }}
+                                className="p-2 text-taupe hover:text-coral transition-colors"
+                                title="Çıkış Yap"
+                            >
+                                <LogIn className="w-4 h-4 rotate-180" />
+                            </button>
+                        </div>
+                    ) : (
+                        <div className="flex items-center gap-3">
+                            <Link
+                                href={`/c/${community.subdomain}/login`}
+                                className="hidden sm:block text-sm font-bold text-charcoal hover:text-obsidian transition-colors"
+                            >
+                                Giriş
+                            </Link>
+                            <Link
+                                href={`/c/${community.subdomain}/join`}
+                                className="btn-primary py-2 px-5 text-sm shadow-md"
+                            >
+                                Katıl
+                            </Link>
+                        </div>
+                    )}
                 </div>
             </div>
-        </div>
+        </header>
+    );
     );
 }
