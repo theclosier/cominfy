@@ -53,32 +53,28 @@ export const MOCK_EVENTS: Event[] = [
     },
     {
         id: "ev-101",
+        communityId: "c1",
         title: "2023 Kış Zirvesi",
         description: "Geçen yılın en büyük yazılım buluşması. 500+ katılımcı ile teknolojinin geleceğini konuştuk.",
         startDate: "2023-12-15T10:00:00",
-        endDate: "2023-12-15T18:00:00",
         location: "Kolektif House, Levent",
         image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=2670",
-        category: "Konferans",
         capacity: 500,
         registeredCount: 500,
-        organizerId: "org-1",
         status: "PUBLISHED",
         platform: "Luma"
     },
     {
         id: "ev-102",
+        communityId: "c1",
         title: "Golang Workshop",
         description: "Go diline giriş ve microservices mimarisi üzerine pratik bir atölye çalışması.",
         startDate: "2024-03-10T14:00:00",
-        endDate: "2024-03-10T17:00:00",
         location: "Online",
         image: "https://images.unsplash.com/photo-1623479322729-28b25c16b011?auto=format&fit=crop&q=80&w=2670",
-        category: "Workshop",
         capacity: 50,
         registeredCount: 48,
-        organizerId: "org-1",
         status: "PUBLISHED",
-        platform: "Comm"
+        platform: "Kommunity"
     },
 ];
