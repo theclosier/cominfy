@@ -155,18 +155,18 @@ export default function LandingPage() {
                         <div className="relative">
                             <div className="absolute inset-0 bg-pastel-green rounded-full blur-3xl opacity-60 transform translate-x-10"></div>
                             <div className="relative rounded-2xl border border-indigo-100 shadow-lg bg-white p-8 grid grid-cols-2 gap-4">
-                                <div className="col-span-2 p-4 rounded-xl bg-surface-hover border border-border-subtle flex items-center gap-4">
+                                <div className="col-span-2 p-4 rounded-xl bg-surface-hover border border-indigo-50 flex items-center gap-4">
                                     <div className="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 font-bold">JD</div>
                                     <div>
                                         <h4 className="font-bold text-text-main">Jane Doe</h4>
                                         <p className="text-xs text-text-muted">12 etkinliğe katıldı • Sadık Üye</p>
                                     </div>
                                 </div>
-                                <div className="p-4 rounded-xl bg-surface-hover border border-border-subtle text-center">
+                                <div className="p-4 rounded-xl bg-surface-hover border border-indigo-50 text-center">
                                     <div className="text-2xl font-bold text-text-main">%98</div>
                                     <div className="text-xs text-text-muted uppercase mt-1">Katılım</div>
                                 </div>
-                                <div className="p-4 rounded-xl bg-surface-hover border border-border-subtle text-center">
+                                <div className="p-4 rounded-xl bg-surface-hover border border-indigo-50 text-center">
                                     <div className="text-2xl font-bold text-text-main">4.9</div>
                                     <div className="text-xs text-text-muted uppercase mt-1">Puan</div>
                                 </div>
@@ -189,7 +189,7 @@ export default function LandingPage() {
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <div className="p-8 rounded-2xl bg-surface border border-border hover:border-accent hover:shadow-lg transition-all group">
+                        <div className="p-8 rounded-2xl bg-surface border border-indigo-100 hover:border-indigo-300 hover:shadow-lg transition-all group">
                             <div className="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-6 font-bold group-hover:scale-110 transition-transform">
                                 <Users className="w-6 h-6" />
                             </div>
@@ -200,7 +200,7 @@ export default function LandingPage() {
                                 <li className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-500" /> Katılım Analitiği</li>
                             </ul>
                         </div>
-                        <div className="p-8 rounded-2xl bg-surface border border-border hover:border-accent hover:shadow-lg transition-all group">
+                        <div className="p-8 rounded-2xl bg-surface border border-indigo-100 hover:border-indigo-300 hover:shadow-lg transition-all group">
                             <div className="w-12 h-12 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center mb-6 font-bold group-hover:scale-110 transition-transform">
                                 <Calendar className="w-6 h-6" />
                             </div>
@@ -211,7 +211,7 @@ export default function LandingPage() {
                                 <li className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-500" /> Otomatik Hatırlatmalar</li>
                             </ul>
                         </div>
-                        <div className="p-8 rounded-2xl bg-surface border border-border hover:border-accent hover:shadow-lg transition-all group">
+                        <div className="p-8 rounded-2xl bg-surface border border-indigo-100 hover:border-indigo-300 hover:shadow-lg transition-all group">
                             <div className="w-12 h-12 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center mb-6 font-bold group-hover:scale-110 transition-transform">
                                 <Shield className="w-6 h-6" />
                             </div>
@@ -301,7 +301,7 @@ export default function LandingPage() {
 
             {/* Integration Grid - Keep existing */}
             <section className="py-32 px-6">
-                <div className="max-w-5xl mx-auto bg-primary rounded-3xl p-12 md:p-20 text-center relative overflow-hidden">
+                <div className="max-w-5xl mx-auto bg-gradient-to-r from-indigo-600 to-violet-600 rounded-3xl p-12 md:p-20 text-center relative overflow-hidden shadow-2xl shadow-indigo-200">
                     <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
                     <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
 
