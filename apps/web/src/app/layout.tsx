@@ -3,7 +3,7 @@ import "./globals.css";
 import { Shell } from "@/components/Shell";
 
 export const metadata: Metadata = {
-  title: "Orgordash - Topluluk Yöneticisi Paneli",
+  title: "Comify - Topluluk Yöneticisi Paneli",
   description: "Topluluklarınızı tek yerden yönetin.",
 };
 
