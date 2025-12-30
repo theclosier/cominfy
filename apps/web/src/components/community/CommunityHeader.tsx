@@ -46,7 +46,6 @@ export default function CommunityHeader({ community }: CommunityHeaderProps) {
     }, []);
 
     return (
-    return (
         <header className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-full max-w-4xl px-4">
             <div className="porcelain-glass rounded-2xl px-6 py-3 flex items-center justify-between shadow-warm transition-all duration-300 hover:shadow-lg">
 
@@ -110,6 +109,5 @@ export default function CommunityHeader({ community }: CommunityHeaderProps) {
                 </div>
             </div>
         </header>
-    );
     );
 }

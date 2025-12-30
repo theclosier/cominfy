@@ -47,7 +47,6 @@ export default function CommunityView({ community, events }: CommunityViewProps)
     });
 
     return (
-    return (
         <div className="min-h-screen pb-24 pt-32 px-4 md:px-8">
             <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[minmax(180px,auto)]">
 
@@ -221,6 +220,5 @@ export default function CommunityView({ community, events }: CommunityViewProps)
 
             </div>
         </div>
-    );
     );
 }
