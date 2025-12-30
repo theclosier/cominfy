@@ -14,15 +14,8 @@ export function Shell({ children }: { children: React.ReactNode }) {
     const router = useRouter();
     const isPublicPage = pathname === '/' || pathname.startsWith('/c/') || pathname === '/login' || pathname === '/register' || pathname === '/yntm/login';
 
-    useEffect(() => {
-        // Admin Auth Guard
-        if (!isPublicPage && typeof window !== 'undefined') {
-            const adminUser = localStorage.getItem('adminUser');
-            if (!adminUser) {
-                router.push('/yntm/login');
-            }
-        }
-    }, [pathname, isPublicPage, router]);
+    // Auth protection is now handled by Middleware and Server Components.
+    // Client-side Shell purely handles Layout (Sidebar visibility).
 
     return (
         <div className="flex min-h-screen bg-background">
