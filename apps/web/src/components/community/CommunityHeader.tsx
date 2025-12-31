@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { LogIn } from "lucide-react";
+import { LogIn, Menu, X } from "lucide-react";
 import { createClient } from "@/utils/supabase/client";
+import clsx from "clsx";
 
 interface CommunityHeaderProps {
     community: {
@@ -15,6 +16,7 @@ interface CommunityHeaderProps {
 export default function CommunityHeader({ community }: CommunityHeaderProps) {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [user, setUser] = useState<any>(null);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     useEffect(() => {
         const supabase = createClient();
@@ -117,8 +119,113 @@ export default function CommunityHeader({ community }: CommunityHeaderProps) {
                             </div>
                         )}
                     </div>
+
+                    {/* Mobile Menu Trigger */}
+                    <button
+                        className="md:hidden p-2 text-obsidian hover:bg-black/5 rounded-full transition-colors"
+                        onClick={() => setIsMenuOpen(true)}
+                    >
+                        <Menu className="w-6 h-6" />
+                    </button>
                 </div>
             </div>
+
+            {/* Mobile Menu Overlay */}
+            {isMenuOpen && (
+                <div className="fixed inset-0 z-[60] bg-cream-100 flex flex-col pointer-events-auto md:hidden animate-in slide-in-from-right duration-300">
+                    <div className="flex items-center justify-between px-6 py-6 border-b border-sandstone/20">
+                        <span className="font-serif text-xl font-bold text-obsidian">{community.name}</span>
+                        <button
+                            onClick={() => setIsMenuOpen(false)}
+                            className="p-2 -mr-2 text-obsidian hover:bg-black/5 rounded-full transition-colors"
+                        >
+                            <X className="w-6 h-6" />
+                        </button>
+                    </div>
+                    <div className="flex-1 flex flex-col p-8 gap-6 overflow-y-auto">
+                        <nav className="flex flex-col gap-4">
+                            <Link
+                                href={`/c/${community.subdomain}/about`}
+                                onClick={() => setIsMenuOpen(false)}
+                                className="text-2xl font-serif font-medium text-obsidian hover:text-electric-blue transition-colors"
+                            >
+                                Hakkında
+                            </Link>
+                            <Link
+                                href={`/c/${community.subdomain}/events`}
+                                onClick={() => setIsMenuOpen(false)}
+                                className="text-2xl font-serif font-medium text-obsidian hover:text-electric-blue transition-colors"
+                            >
+                                Etkinlikler
+                            </Link>
+                            <Link
+                                href={`/c/${community.subdomain}/gallery`}
+                                onClick={() => setIsMenuOpen(false)}
+                                className="text-2xl font-serif font-medium text-obsidian hover:text-electric-blue transition-colors"
+                            >
+                                Galeri
+                            </Link>
+                            <Link
+                                href={`/c/${community.subdomain}/rules`}
+                                onClick={() => setIsMenuOpen(false)}
+                                className="text-2xl font-serif font-medium text-obsidian hover:text-electric-blue transition-colors"
+                            >
+                                Kurallar
+                            </Link>
+                        </nav>
+
+                        <div className="mt-auto pt-8 border-t border-sandstone/20">
+                            {isLoggedIn ? (
+                                <div className="space-y-4">
+                                    <div className="flex items-center gap-3">
+                                        <div className="w-10 h-10 rounded-full bg-cream-200 flex items-center justify-center text-sm font-bold text-obsidian">
+                                            {user?.email?.[0].toUpperCase() || 'U'}
+                                        </div>
+                                        <div>
+                                            <p className="font-bold text-obsidian">{user?.email}</p>
+                                            <p className="text-xs text-taupe">Üye</p>
+                                        </div>
+                                    </div>
+                                    <Link
+                                        href={`/c/${community.subdomain}/profile`}
+                                        onClick={() => setIsMenuOpen(false)}
+                                        className="btn-secondary w-full justify-center"
+                                    >
+                                        Hesabım
+                                    </Link>
+                                    <button
+                                        onClick={async () => {
+                                            const supabase = createClient();
+                                            await supabase.auth.signOut();
+                                            window.location.reload();
+                                        }}
+                                        className="w-full py-3 text-sm font-bold text-coral hover:bg-red-50 rounded-xl transition-colors"
+                                    >
+                                        Çıkış Yap
+                                    </button>
+                                </div>
+                            ) : (
+                                <div className="space-y-3">
+                                    <Link
+                                        href={`/c/${community.subdomain}/login`}
+                                        onClick={() => setIsMenuOpen(false)}
+                                        className="btn-secondary w-full justify-center"
+                                    >
+                                        Giriş Yap
+                                    </Link>
+                                    <Link
+                                        href={`/c/${community.subdomain}/join`}
+                                        onClick={() => setIsMenuOpen(false)}
+                                        className="btn-primary w-full justify-center py-3"
+                                    >
+                                        Topluluğa Katıl
+                                    </Link>
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                </div>
+            )}
         </header>
     );
 }
