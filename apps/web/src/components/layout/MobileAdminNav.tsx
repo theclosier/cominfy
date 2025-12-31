@@ -42,11 +42,11 @@ export default function MobileAdminNav() {
 
             {/* Sidebar Drawer */}
             <div className={clsx(
-                "fixed inset-y-0 left-0 z-50 transform transition-transform duration-300 ease-in-out md:hidden",
+                "fixed inset-y-0 left-0 z-50 transform transition-transform duration-300 ease-in-out md:hidden w-64",
                 isOpen ? "translate-x-0" : "-translate-x-full"
             )}>
                 <Sidebar
-                    className="flex w-64 h-full shadow-2xl"
+                    className="flex flex-col w-full h-full shadow-2xl"
                     onClose={() => setIsOpen(false)}
                 />
             </div>

@@ -44,7 +44,7 @@ export default function LandingPage() {
 
                 {/* Mobile Menu Overlay */}
                 {isMenuOpen && (
-                    <div className="fixed inset-0 z-[100] bg-white flex flex-col pointer-events-auto md:hidden animate-in slide-in-from-top duration-300">
+                    <div className="fixed inset-0 z-[100] bg-white flex flex-col pointer-events-auto md:hidden">
                         <div className="h-20 flex items-center justify-between px-6 border-b border-indigo-50">
                             <span className="font-bold text-xl tracking-tight text-text-main">COMINFY</span>
                             <button

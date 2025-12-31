@@ -19,7 +19,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
 
     return (
         <div className="flex min-h-screen bg-background">
-            {!isPublicPage && <Sidebar className="hidden md:flex flex-col" />}
+            {!isPublicPage && <Sidebar className="hidden md:flex flex-col fixed left-0 top-0 h-screen" />}
 
             <main className={clsx(
                 "flex-1 min-h-screen transition-all duration-300",

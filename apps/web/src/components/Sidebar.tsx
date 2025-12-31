@@ -36,7 +36,7 @@ export function Sidebar({ className, onClose }: SidebarProps) {
 
     return (
         <aside className={clsx(
-            "w-64 fixed left-0 top-0 h-screen bg-electric-blue border-r border-white/10 p-6 z-40 text-white transition-transform",
+            "w-64 bg-electric-blue border-r border-white/10 p-6 z-40 text-white transition-transform",
             className // Parent MUST provide display/layout classes (e.g. 'hidden md:flex' or 'flex')
         )}>
             {/* Brand - Text Only */}
