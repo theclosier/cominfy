@@ -1,10 +1,12 @@
 "use client";
 
 import { Camera, Mail, MapPin, Link as LinkIcon, Save, Calendar } from "lucide-react";
+import MobileAdminNav from "@/components/layout/MobileAdminNav";
 
 export default function ProfilePage() {
     return (
         <div className="p-8 md:p-12 max-w-4xl mx-auto space-y-8 animate-in slide-up duration-500">
+            <MobileAdminNav />
             <div>
                 <h1 className="text-3xl font-bold text-text-main mb-2">Profilim</h1>
                 <p className="text-text-muted text-lg">Kişisel bilgilerinizi ve topluluk görünümünüzü yönetin.</p>
