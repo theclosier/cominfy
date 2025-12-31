@@ -3,10 +3,15 @@
 import { useState } from "react";
 import { Sidebar } from "@/components/Sidebar";
 import { Menu, X } from "lucide-react";
+import { usePathname } from "next/navigation";
 import clsx from "clsx";
 
 export default function MobileAdminNav() {
     const [isOpen, setIsOpen] = useState(false);
+    const pathname = usePathname();
+
+    // Do not show on login page
+    if (pathname.includes('/login')) return null;
 
     return (
         <>
