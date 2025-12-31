@@ -1,17 +1,19 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import clsx from "clsx";
 import { LayoutDashboard, Calendar, Users, Settings, RefreshCw, Hexagon, LogOut } from "lucide-react";
+import { createClient } from "@/utils/supabase/client";
 
 interface SidebarProps {
-    className?: string; // Allow overriding styles (e.g. for mobile display)
-    onClose?: () => void; // Callback to close mobile menu on navigation
+    className?: string;
+    onClose?: () => void;
 }
 
 export function Sidebar({ className, onClose }: SidebarProps) {
     const pathname = usePathname();
+    const router = useRouter();
 
     const navItems = [
         { name: 'Panel', href: '/yntm/dashboard', icon: LayoutDashboard },
@@ -24,6 +26,12 @@ export function Sidebar({ className, onClose }: SidebarProps) {
 
     const handleNavClick = () => {
         if (onClose) onClose();
+    };
+
+    const handleLogout = async () => {
+        const supabase = createClient();
+        await supabase.auth.signOut();
+        router.push('/yntm/login');
     };
 
     return (
@@ -78,13 +86,13 @@ export function Sidebar({ className, onClose }: SidebarProps) {
                     </div>
                 </Link>
 
-                <Link
-                    href="/login"
+                <button
+                    onClick={handleLogout}
                     className="p-2.5 text-blue-200 hover:text-white hover:bg-white/10 rounded-xl transition-colors flex-shrink-0"
                     title="Çıkış Yap"
                 >
                     <LogOut className="w-5 h-5" />
-                </Link>
+                </button>
             </div>
         </aside>
     );
