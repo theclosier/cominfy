@@ -48,7 +48,7 @@ export default function LandingPage() {
                     <div className="fixed inset-0 z-[100] bg-white flex flex-col h-[100dvh] overflow-hidden overscroll-contain">
                         {/* Menu Header */}
                         <div className="flex items-center justify-between px-6 py-4 border-b border-indigo-50 shrink-0">
-                            <Link href="/" onClick={() => setIsMenuOpen(false)} className="font-bold text-2xl tracking-tight text-slate-900">
+                            <Link href="/" onClick={() => setIsMenuOpen(false)} className="font-bold text-xl tracking-tight text-slate-900">
                                 COMINFY
                             </Link>
                             <button
@@ -62,13 +62,13 @@ export default function LandingPage() {
                         {/* Menu Body */}
                         <div className="flex-1 flex flex-col p-6 gap-6 overflow-y-auto pb-24">
                             <nav className="flex flex-col gap-6">
-                                <a href="#features" onClick={() => setIsMenuOpen(false)} className="text-2xl font-medium text-slate-900 hover:text-indigo-600 transition-colors">
+                                <a href="#features" onClick={() => setIsMenuOpen(false)} className="text-lg font-medium text-slate-900 hover:text-indigo-600 transition-colors">
                                     Özellikler
                                 </a>
-                                <a href="#solutions" onClick={() => setIsMenuOpen(false)} className="text-2xl font-medium text-slate-900 hover:text-indigo-600 transition-colors">
+                                <a href="#solutions" onClick={() => setIsMenuOpen(false)} className="text-lg font-medium text-slate-900 hover:text-indigo-600 transition-colors">
                                     Çözümler
                                 </a>
-                                <a href="#pricing" onClick={() => setIsMenuOpen(false)} className="text-2xl font-medium text-slate-900 hover:text-indigo-600 transition-colors">
+                                <a href="#pricing" onClick={() => setIsMenuOpen(false)} className="text-lg font-medium text-slate-900 hover:text-indigo-600 transition-colors">
                                     Fiyatlandırma
                                 </a>
                             </nav>
