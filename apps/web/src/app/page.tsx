@@ -12,9 +12,9 @@ export default function LandingPage() {
             {/* Header - Floating Dock Style */}
             <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-full max-w-7xl px-4 md:px-6">
                 <div className="bg-white/90 backdrop-blur-md rounded-2xl border border-indigo-100 shadow-lg shadow-indigo-100/50 h-16 flex items-center justify-between px-6 transition-all">
-                    <div className="flex items-center gap-2">
+                    <Link href="/" className="flex items-center gap-2">
                         <span className="font-bold text-xl tracking-tight text-text-main">COMINFY</span>
-                    </div>
+                    </Link>
 
                     {/* Desktop Navigation */}
                     <div className="hidden md:flex items-center gap-8">
@@ -35,7 +35,7 @@ export default function LandingPage() {
 
                     {/* Mobile Menu Trigger */}
                     <button
-                        className="md:hidden p-2 text-text-main hover:bg-slate-100 rounded-lg transition-colors"
+                        className="md:hidden p-2 text-text-main hover:bg-slate-100 rounded-lg transition-colors relative z-[60] cursor-pointer"
                         onClick={() => setIsMenuOpen(true)}
                     >
                         <Menu className="w-6 h-6" />

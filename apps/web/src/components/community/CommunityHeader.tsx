@@ -122,7 +122,7 @@ export default function CommunityHeader({ community }: CommunityHeaderProps) {
 
                     {/* Mobile Menu Trigger */}
                     <button
-                        className="md:hidden p-2 text-obsidian hover:bg-black/5 rounded-full transition-colors"
+                        className="md:hidden p-2 text-obsidian hover:bg-black/5 rounded-full transition-colors relative z-[60] cursor-pointer"
                         onClick={() => setIsMenuOpen(true)}
                     >
                         <Menu className="w-6 h-6" />

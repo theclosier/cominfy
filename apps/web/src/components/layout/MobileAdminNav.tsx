@@ -6,6 +6,8 @@ import { Menu, X } from "lucide-react";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
 
+import Link from "next/link";
+
 export default function MobileAdminNav() {
     const [isOpen, setIsOpen] = useState(false);
     const pathname = usePathname();
@@ -23,7 +25,7 @@ export default function MobileAdminNav() {
                 >
                     <Menu className="w-6 h-6" />
                 </button>
-                <span className="font-serif font-bold text-lg text-obsidian">COMINFY</span>
+                <Link href="/yntm/dashboard" className="font-serif font-bold text-lg text-obsidian">COMINFY</Link>
                 <div className="w-8"></div> {/* Spacer for center alignment */}
             </div>
 
