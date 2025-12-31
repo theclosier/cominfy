@@ -29,10 +29,9 @@ export function Sidebar({ className, onClose }: SidebarProps) {
     return (
         <aside className={clsx(
             "w-64 fixed left-0 top-0 h-screen bg-electric-blue border-r border-white/10 p-6 flex-col z-40 text-white",
-            // Default to hidden on mobile, visible on desktop.
-            // If className is provided, it can override this behavior.
-            !className && "hidden md:flex",
-            className || "flex"
+            // If className is provided, use it (for mobile drawer).
+            // If NOT provided, use default desktop behavior (hidden on mobile, flex on desktop).
+            className ? className : "hidden md:flex"
         )}>
             {/* Brand - Text Only */}
             <div className="flex items-center gap-3 px-2 mb-10">

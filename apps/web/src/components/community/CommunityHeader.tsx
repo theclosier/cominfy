@@ -132,7 +132,7 @@ export default function CommunityHeader({ community }: CommunityHeaderProps) {
 
             {/* Mobile Menu Overlay */}
             {isMenuOpen && (
-                <div className="fixed inset-0 z-[60] bg-cream-100 flex flex-col pointer-events-auto md:hidden animate-in slide-in-from-right duration-300">
+                <div className="fixed inset-0 z-[100] bg-cream-100 flex flex-col pointer-events-auto md:hidden animate-in slide-in-from-right duration-300">
                     <div className="flex items-center justify-between px-6 py-6 border-b border-sandstone/20">
                         <span className="font-serif text-xl font-bold text-obsidian">{community.name}</span>
                         <button
