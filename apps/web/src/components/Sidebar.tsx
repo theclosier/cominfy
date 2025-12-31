@@ -5,7 +5,12 @@ import { usePathname } from "next/navigation";
 import clsx from "clsx";
 import { LayoutDashboard, Calendar, Users, Settings, RefreshCw, Hexagon, LogOut } from "lucide-react";
 
-export function Sidebar() {
+interface SidebarProps {
+    className?: string; // Allow overriding styles (e.g. for mobile display)
+    onClose?: () => void; // Callback to close mobile menu on navigation
+}
+
+export function Sidebar({ className, onClose }: SidebarProps) {
     const pathname = usePathname();
 
     const navItems = [
@@ -17,11 +22,21 @@ export function Sidebar() {
         { name: 'Ayarlar', href: '/yntm/settings', icon: Settings },
     ];
 
+    const handleNavClick = () => {
+        if (onClose) onClose();
+    };
+
     return (
-        <aside className="w-64 fixed left-0 top-0 h-screen bg-electric-blue border-r border-white/10 p-6 flex flex-col z-40 hidden md:flex text-white">
+        <aside className={clsx(
+            "w-64 fixed left-0 top-0 h-screen bg-electric-blue border-r border-white/10 p-6 flex-col z-40 text-white",
+            // Default to hidden on mobile, visible on desktop.
+            // If className is provided, it can override this behavior.
+            !className && "hidden md:flex",
+            className || "flex"
+        )}>
             {/* Brand - Text Only */}
             <div className="flex items-center gap-3 px-2 mb-10">
-                <Link href="/yntm/dashboard" className="font-serif font-black text-2xl tracking-tighter text-white hover:opacity-80 transition-opacity">
+                <Link href="/yntm/dashboard" onClick={handleNavClick} className="font-serif font-black text-2xl tracking-tighter text-white hover:opacity-80 transition-opacity">
                     COMINFY
                 </Link>
             </div>
@@ -34,6 +49,7 @@ export function Sidebar() {
                         <Link
                             key={item.href}
                             href={item.href}
+                            onClick={handleNavClick}
                             className={clsx(
                                 "flex items-center gap-3 px-4 py-3 rounded-2xl transition-all duration-300 group",
                                 isActive
@@ -52,7 +68,7 @@ export function Sidebar() {
 
             {/* User Profile Snippet */}
             <div className="mt-auto pt-6 border-t border-white/10 flex items-center gap-2">
-                <Link href="/profile" className="flex-1 flex items-center gap-3 p-2 rounded-2xl hover:bg-white/10 transition-all cursor-pointer group min-w-0 border border-transparent">
+                <Link href="/profile" onClick={handleNavClick} className="flex-1 flex items-center gap-3 p-2 rounded-2xl hover:bg-white/10 transition-all cursor-pointer group min-w-0 border border-transparent">
                     <div className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white font-serif font-bold group-hover:border-white/40 transition-colors flex-shrink-0">
                         {/* Simple Initial Avatar instead of broken image */}
                         A
