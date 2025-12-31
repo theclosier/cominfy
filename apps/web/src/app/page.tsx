@@ -10,22 +10,22 @@ export default function LandingPage() {
     return (
         <div className="min-h-screen bg-background font-sans">
             {/* Header */}
-            {/* Header - Floating Dock Style */}
-            <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-full max-w-7xl px-4 md:px-6">
-                <div className="bg-white/90 backdrop-blur-md rounded-2xl border border-indigo-100 shadow-lg shadow-indigo-100/50 h-16 flex items-center justify-between px-6 transition-all">
+            {/* Header - Standard Sticky */}
+            <nav className="sticky top-0 z-50 w-full bg-white/90 backdrop-blur-md border-b border-indigo-50 transition-all">
+                <div className="max-w-7xl mx-auto px-4 md:px-6 h-16 flex items-center justify-between">
                     <Link href="/" className="flex items-center gap-2">
-                        <span className="font-bold text-xl tracking-tight text-text-main">COMINFY</span>
+                        <span className="font-bold text-xl tracking-tight text-slate-900">COMINFY</span>
                     </Link>
 
                     {/* Desktop Navigation */}
                     <div className="hidden md:flex items-center gap-8">
-                        <div className="flex gap-8 text-sm font-medium text-text-muted">
+                        <div className="flex gap-8 text-sm font-medium text-slate-600">
                             <a href="#features" className="hover:text-indigo-600 transition-colors">Özellikler</a>
                             <a href="#solutions" className="hover:text-indigo-600 transition-colors">Çözümler</a>
                             <a href="#pricing" className="hover:text-indigo-600 transition-colors">Fiyatlandırma</a>
                         </div>
                         <div className="flex items-center gap-4">
-                            <Link href="/yntm/login" className="text-sm font-semibold text-text-main hover:text-indigo-600 transition-colors">
+                            <Link href="/yntm/login" className="text-sm font-semibold text-slate-900 hover:text-indigo-600 transition-colors">
                                 Giriş Yap
                             </Link>
                             <Link href="/register" className="btn-primary py-2 px-5 h-9 text-sm shadow-indigo-200">
@@ -36,7 +36,7 @@ export default function LandingPage() {
 
                     {/* Mobile Menu Trigger */}
                     <button
-                        className="md:hidden p-2 text-text-main hover:bg-slate-100 rounded-lg transition-colors relative z-[60] cursor-pointer"
+                        className="md:hidden p-2 text-slate-900 hover:bg-slate-100 rounded-lg transition-colors relative z-[60] cursor-pointer"
                         onClick={() => setIsMenuOpen(true)}
                     >
                         <Menu className="w-6 h-6" />
@@ -45,9 +45,9 @@ export default function LandingPage() {
 
                 {/* Mobile Menu Overlay */}
                 {isMenuOpen && (
-                    <div className="fixed inset-0 z-[100] bg-white flex flex-col pointer-events-auto md:hidden overflow-hidden">
+                    <div className="fixed inset-0 z-[100] bg-white flex flex-col h-[100dvh] overflow-hidden overscroll-contain">
                         {/* Menu Header */}
-                        <div className="flex items-center justify-between px-6 py-6 border-b border-indigo-50">
+                        <div className="flex items-center justify-between px-6 py-4 border-b border-indigo-50 shrink-0">
                             <Link href="/" onClick={() => setIsMenuOpen(false)} className="font-bold text-2xl tracking-tight text-slate-900">
                                 COMINFY
                             </Link>
@@ -60,7 +60,7 @@ export default function LandingPage() {
                         </div>
 
                         {/* Menu Body */}
-                        <div className="flex-1 flex flex-col p-8 gap-6 overflow-y-auto">
+                        <div className="flex-1 flex flex-col p-6 gap-6 overflow-y-auto pb-24">
                             <nav className="flex flex-col gap-6">
                                 <a href="#features" onClick={() => setIsMenuOpen(false)} className="text-2xl font-medium text-slate-900 hover:text-indigo-600 transition-colors">
                                     Özellikler
@@ -74,7 +74,7 @@ export default function LandingPage() {
                             </nav>
 
                             {/* Menu Footer / Actions */}
-                            <div className="mt-auto pt-8 border-t border-indigo-50 flex flex-col gap-4">
+                            <div className="mt-auto border-t border-indigo-50 pt-6 flex flex-col gap-4">
                                 <Link
                                     href="/yntm/login"
                                     onClick={() => setIsMenuOpen(false)}
